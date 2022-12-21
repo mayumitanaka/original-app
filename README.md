@@ -1,24 +1,98 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type    | Options                   |
+| ------------------ | ------- | ------------------------- |
+| nickname           | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| tool_id            | integer | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :recipes, dependent: :destroy
+- has_many :menus,   dependent: :destroy
+- has_many :foods,   dependent: :destroy
+- belongs_to_active_hash :tool
 
-* Configuration
 
-* Database creation
+## recipes テーブル
 
-* Database initialization
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| recipe-title      | string     | null: false                    |
+| recipe-procedure  | text       | null: false                    |
+| recipe-volume     | integer    | null: false                    |
+| recipe-material   | integer    | null: false                    |
+| recipe-quantity   | string     | null: false                    |
+| cooking-time      | integer    | null: false                    |
+| tool_id           | integer    | null: false                    |
+| category_id       | integer    | null: false                    |
+| user              | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_many   :menus
+- has_many   :recipe-tags
+- belongs_to_active_hash :tool
+- belongs_to_active_hash :category
 
-* Deployment instructions
 
-* ...
+## menus テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+| recipe   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :recipe
+
+
+## recipe-tags テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| recipe   | references | null: false, foreign_key: true |
+| tag      | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :recipe
+- belongs_to :tag
+
+
+## tags テーブル
+
+| Column     | Type     | Options        |
+| ---------- | -------- | -------------- |
+| bookmark   | string   | null: false    |
+| main       | string   | null: false    |
+| sub        | string   | null: false    |
+| soup       | string   | null: false    |
+| vegetable  | string   | null: false    |
+| meet       | string   | null: false    |
+| egg        | string   | null: false    |
+| fish       | string   | null: false    |
+| bean       | string   | null: false    |
+
+### Association
+
+- has_many   :recipe-tags
+
+
+## foods テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| food-name   | string     | null: false                    |
+| best-before | string     | null: false                    |
+| user        | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
