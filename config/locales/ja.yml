@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname : ニックネーム
+        tool     : 調理器具
