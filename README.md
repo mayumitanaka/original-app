@@ -21,12 +21,12 @@
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| recipe-title      | string     | null: false                    |
-| recipe-procedure  | text       | null: false                    |
-| recipe-volume     | integer    | null: false                    |
-| recipe-material   | string     | null: false                    |
-| recipe-quantity   | integer    | null: false                    |
-| cooking-time      | integer    | null: false                    |
+| recipe_title      | string     | null: false                    |
+| recipe_procedure  | text       | null: false                    |
+| recipe_volume     | integer    | null: false                    |
+| recipe_material   | string     | null: false                    |
+| recipe_quantity   | integer    | null: false                    |
+| cooking_time      | integer    | null: false                    |
 | tool_id           | integer    | null: false                    |
 | category_id       | integer    | null: false                    |
 | user              | references | null: false, foreign_key: true |
@@ -89,8 +89,8 @@
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| food-name   | string     | null: false                    |
-| best-before | string     | null: false                    |
+| food_name   | string     | null: false                    |
+| best_before | string     | null: false                    |
 | user        | references | null: false, foreign_key: true |
 
 ### Association
