@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2022_12_22_075956) do
     t.text "recipe_procedure", null: false
     t.integer "recipe_volume", null: false
     t.string "recipe_material", null: false
-    t.integer "recipe_quantity", null: false
+    t.string "recipe_quantity", null: false
     t.integer "cooking_time", null: false
     t.integer "tool_id", null: false
     t.integer "category_id", null: false

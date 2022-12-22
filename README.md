@@ -25,7 +25,7 @@
 | recipe_procedure  | text       | null: false                    |
 | recipe_volume     | integer    | null: false                    |
 | recipe_material   | string     | null: false                    |
-| recipe_quantity   | integer    | null: false                    |
+| recipe_quantity   | string     | null: false                    |
 | cooking_time      | integer    | null: false                    |
 | tool_id           | integer    | null: false                    |
 | category_id       | integer    | null: false                    |
@@ -53,7 +53,7 @@
 - belongs_to :recipe
 
 
-## recipe-tags テーブル
+## recipe_tags テーブル
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
