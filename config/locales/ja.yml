@@ -3,4 +3,13 @@ ja:
     attributes:
       user:
         nickname : ニックネーム
-        tool     : 調理器具
+        tool_id  : 調理器具
+      recipe:
+        recipe_title     : タイトル
+        recipe_procedure : 調理手順
+        recipe_volume    : 量
+        recipe_material  : 材料
+        recipe_quantity  : 使用量
+        cooking_time     : 調理時間
+        tool_id          : 調理器具
+        category_id      : カテゴリー
