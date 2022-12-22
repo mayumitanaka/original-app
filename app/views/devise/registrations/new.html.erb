@@ -40,7 +40,10 @@
     <div class='form-text-wrap'>
       <label class="form-text">調理器具</label>
     </div>
-    <%= f.text_field :tool_id, class:"input-default", id:"tool-id" %>
+    <%= f.collection_select(:tool_id, Tool.all, :id, :name, {}, {class:"select-box", id:"tool"}) %>
+  </div>
+  <div class='register-btn'>
+    <%= f.submit "会員登録" ,class:"register-red-btn" %>
   </div>
 </div>
 <% end %>

@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true
-  validates :tool_id, numericality: { other_than: 1, message: 'を入力してください' }
 
   has_many :recipes, dependent: :destroy
   has_many :menus,   dependent: :destroy
