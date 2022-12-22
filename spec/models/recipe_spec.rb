@@ -7,7 +7,8 @@ RSpec.describe Recipe, type: :model do
 
   describe 'レシピ情報の登録' do
     context 'レシピ情報が登録できる場合' do
-      it 'recipe_title、recipe_procedure、recipe_volume、recipe_material、recipe_quantity、cooking_time、tool_id、category_id、imageが存在すれば登録できる' do
+      it 'recipe_title、recipe_procedure、recipe_volume、recipe_material、recipe_quantity、
+          cooking_time、tool_id、category_id、imageが存在すれば登録できる' do
         expect(@recipe).to be_valid
       end
     end
