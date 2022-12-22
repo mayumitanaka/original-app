@@ -1,4 +1,4 @@
-class tool < ActiveHash::Base
+class Tool < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: '鍋(直径15cm程度)' },
@@ -9,10 +9,11 @@ class tool < ActiveHash::Base
     { id: 7, name: 'オーブン' },
     { id: 8, name: 'トースター' },
     { id: 9, name: 'フードプロセッサー' },
-    { id: 10, name: 'ミキサー' }
+    { id: 10, name: 'ミキサー' },
     { id: 11, name: '泡立て器' }
   ]
-   include ActiveHash::Associations
-   has_many :users
-   has_many :recipes
-  end
+
+  include ActiveHash::Associations
+  has_many :users
+  has_many :recipes
+end
