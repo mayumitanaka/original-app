@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :recipe do
     recipe_title     { Faker::Food.dish }
     recipe_procedure { Faker::Food.description }
-    recipe_volume    { Faker::Number.between(from: 1 , to:99) }
+    recipe_volume    { Faker::Number.between(from: 1, to: 99) }
     recipe_material  { Faker::Food.ingredient }
     recipe_quantity  { Faker::Food.measurement }
     cooking_time     { Faker::Number.between(from: 1, to: 999) }
