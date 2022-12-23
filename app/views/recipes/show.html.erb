@@ -47,7 +47,7 @@
         <p class="or-text">or</p>
         <%= link_to "削除", recipe_path(@recipe.id), method: :delete, class:"item-destroy" %>
       <% else current_user.id != @recipe.user_id %>
-        <div class="item-red-btn">お気に入り</div>
+        <div class="item-red-btn", id="bookmark-btn">お気に入り</div>
       <% end %>
     <% end %>
   </div>
