@@ -1,0 +1,54 @@
+<%= render "shared/header" %>
+
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @recipe.recipe_title %>
+    </h2>
+    <div class="item-img-content">
+      <%= image_tag @recipe.image, class:"item-box-img" %>
+    </div>
+    <div class="item-price-box">
+      <span class="item-price">
+        調理時間：<%= @recipe.cooking_time %> 分
+      </span>
+    </div>
+    <div class="item-price-box">
+      <span class="item-price">
+        カテゴリー：<%= @recipe.category.name %>
+      </span>
+    </div>
+
+    <div class="item-explain-box">
+      <h3>材料</h3>
+      <span>(<%= @recipe.recipe_volume %>人前)</span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item"><%= @recipe.recipe_material %></th>
+          <td class="detail-value"><%= @recipe.recipe_quantity %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">調理器具</th>
+          <td class="detail-value"><%= @recipe.tool.name %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="item-explain-box">
+      <h3>手順</h3>
+      <span><%= @recipe.recipe_procedure %></span>
+    </div>
+
+
+    <% if user_signed_in? %>
+      <% if current_user.id == @recipe.user_id %>
+        <%= link_to "編集", edit_recipe_path(@recipe.id), method: :get, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", recipe_path(@recipe.id), method: :delete, class:"item-destroy" %>
+      <% else current_user.id != @recipe.user_id %>
+        <div class="item-red-btn">お気に入り</div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
