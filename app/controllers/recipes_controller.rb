@@ -22,6 +22,13 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+    return if @recipe.user_id == current_user.id
+
+    redirect_to root_path
+  end
+
   private
 
   def recipe_params
