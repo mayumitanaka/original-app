@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @ingredient = @recipe.ingredients.build
   end
 
   def create
@@ -37,19 +38,13 @@ class RecipesController < ApplicationController
     end
   end
 
-  def destroy
-    recipe = Recipe.find(params[:id])
-    return unless recipe.user_id == current_user.id
-
-    recipe.destroy
-    redirect_to root_path
-  end
-
   private
 
   def recipe_params
     params.require(:recipe).permit(:recipe_title, :recipe_procedure, :recipe_volume, :recipe_material, :recipe_quantity,
-                                   :cooking_time, :tool_id, :category_id, :image).merge(user_id: current_user.id)
+                                   :cooking_time, :tool_id, :category_id, {images: []}, 
+                                   ingredients_attributes:[:id, :recipe_id, :thing_id, :amount, :_destroy])
+                                   .merge(user_id: current_user.id)
   end
 
   def set_recipe

@@ -58,6 +58,30 @@
         <%= f.text_field :recipe_quantity, class:"items-text", id:"recipe-quantity", placeholder:"必要量" %>
       </div>
 
+      <div class="parent">
+        <div class="form-box">
+          <div class="forms-item">
+            材料
+          </div>
+          <div class="add-botton-box">
+            <%= link_to_add_association "追加ボタン", f, :ingredients,
+            class: 'add_fields',
+            id: 'add-btn',
+            data: {
+              association_insertion_node: '#detail-association-insertion-point',
+              association_insertion_method: 'after'
+            }
+            %>
+          </div>
+       </div>
+
+        <div id="detail-association-insertion-point"></div>
+
+        <%= f.fields_for :ingredients do |form| %>
+          <%= render "ingredient_fields", f: form %>
+        <% end %>
+      </div>
+
       <div class="price-content">
         <div class="price-text">
           <span>調理時間</span>
