@@ -10,6 +10,10 @@ RSpec.describe User, type: :model do
       it 'nameとemail、passwordとpassword_confirmationが存在すれば登録できる' do
         expect(@user).to be_valid
       end
+      it 'tool_idに「---」が選択されていても登録できる' do
+        @user.tool_id = 1
+        expect(@user).to be_valid
+      end
     end
 
     context '新規登録できない場合' do

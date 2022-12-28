@@ -8,7 +8,6 @@
 
     <%= render 'shared/error_messages', model: f.object %>
 
-    <%# 画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
         画像
@@ -20,42 +19,19 @@
         <%= f.file_field :image, id:"recipe-image" %>
       </div>
     </div>
-    <%# /画像 %>
-    <%# タイトル %>
+
     <div class="new-items">
       <div class="weight-bold-text">
         タイトル
-        <span class="indispensable">必須</span>
       </div>
       <%= f.text_field :recipe_title, class:"items-text", id:"recipe-title", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
     </div>
-    <%# /タイトル %>
 
-    <%# 詳細 %>
     <div class="items-detail">
       <div class="weight-bold-text">レシピの詳細</div>
       <div class="price-content">
-        <div class="price-text">
-          <span>量</span>
-          <span class="indispensable">必須</span>
-        </div>
         <%= f.text_field :recipe_volume, class:"price-input", id:"recipe-volume" %>
         <span class="sell-yen">人前</span>
-      </div>
-
-      <div class="new-items">
-        <div class="weight-bold-text">
-          材料
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_field :recipe_material, class:"items-text", id:"recipe-material", placeholder:"材料" %>
-      </div>
-      <div class="new-items">
-        <div class="weight-bold-text">
-          必要量
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_field :recipe_quantity, class:"items-text", id:"recipe-quantity", placeholder:"必要量" %>
       </div>
 
       <div class="parent">
@@ -73,10 +49,8 @@
             }
             %>
           </div>
-       </div>
-
+        </div>
         <div id="detail-association-insertion-point"></div>
-
         <%= f.fields_for :ingredients do |form| %>
           <%= render "ingredient_fields", f: form %>
         <% end %>
@@ -85,7 +59,6 @@
       <div class="price-content">
         <div class="price-text">
           <span>調理時間</span>
-          <span class="indispensable">必須</span>
         </div>
         <%= f.text_field :cooking_time, class:"price-input", id:"cooking-time" %>
         <span class="sell-yen">分</span>
@@ -93,29 +66,23 @@
       <div class="form">
         <div class="weight-bold-text">
           調理器具
-          <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:tool_id, Tool.all, :id, :name, {}, {class:"select-box", id:"tool"}) %>
         <div class="weight-bold-text">
           カテゴリー
-          <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
       </div>
     </div>
-    <%# /詳細 %>
 
-    <%# 手順 %>
     <div class="new-items">
       <div class="items-explain">
         <div class="weight-bold-text">
           手順
-          <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :recipe_procedure, class:"items-text", id:"recipe-procedure", placeholder:"調理の手順" ,rows:"20" ,maxlength:"5000" %>
       </div>
     </div>
-    <%# /手順 %>
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">

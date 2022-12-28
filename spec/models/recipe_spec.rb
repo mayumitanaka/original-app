@@ -11,6 +11,10 @@ RSpec.describe Recipe, type: :model do
           cooking_time、tool_id、category_id、imageが存在すれば登録できる' do
         expect(@recipe).to be_valid
       end
+      it 'tool_idに「---」が選択されていても登録できる' do
+        @recipe.tool_id = 1
+        expect(@recipe).to be_valid
+      end
     end
 
     context 'レシピ情報が登録できない場合' do
@@ -83,11 +87,6 @@ RSpec.describe Recipe, type: :model do
         @recipe.cooking_time = '1000'
         @recipe.valid?
         expect(@recipe.errors.full_messages).to include '調理時間は999以下の値にしてください'
-      end
-      it 'tool_idに「---」が選択されている場合は登録できない' do
-        @recipe.tool_id = 1
-        @recipe.valid?
-        expect(@recipe.errors.full_messages).to include '調理器具を入力してください'
       end
       it 'category_idに「---」が選択されている場合は登録できない' do
         @recipe.category_id = 1

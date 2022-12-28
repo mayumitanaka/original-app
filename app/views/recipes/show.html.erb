@@ -26,13 +26,15 @@
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-item"><%= @recipe.recipe_material %></th>
-          <td class="detail-value"><%= @recipe.recipe_quantity %></td>
-        </tr>
-        <tr>
           <th class="detail-item">調理器具</th>
           <td class="detail-value"><%= @recipe.tool.name %></td>
         </tr>
+        <% @ingredients.each do |ingredient| %>
+          <tr>
+            <th class="detail-item"><%= ingredient.ing %></th>
+            <td class="detail-value"><%= ingredient.quantity %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
     <div class="item-explain-box">
