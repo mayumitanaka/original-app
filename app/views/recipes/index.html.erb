@@ -1,23 +1,18 @@
 <%= render "shared/header" %>
 
 <div class='main'>
-  <div class='item-contents'>
-    <h2 class='title'>ピックアップカテゴリー</h2>
+  <div class='recipe-contents'>
     <div class="subtitle" >
-      新規投稿商品
+      新規投稿レシピ
     </div>
-    <ul class='item-lists'>
+    <ul class='recipe-lists'>
       <% @recipes.each do |recipe| %>
         <li class='list'>
           <%= link_to recipe_path(recipe.id) do %>
-          <div class='item-img-content'>
-            <%= image_tag recipe.image, class: "item-img" if recipe.image.attached? %>
-          </div>
-          <div class='item-info'>
-            <h3 class='item-name'>
+            <%= image_tag recipe.image, class: "recipe-img" if recipe.image.attached? %>
+            <div class='recipe-title'>
               <%= recipe.recipe_title %>
-            </h3>
-          </div>
+            </div>
           <% end %>
         </li>
       <% end %>
@@ -25,12 +20,10 @@
       <% unless @recipes.present? %>
         <li class='list'>
           <%= link_to '#' do %>
-          <%= image_tag "/public/images/test_image.png", class: "item-img" %>
-          <div class='item-info'>
-            <h3 class='item-name'>
+            <%= image_tag "/public/images/test_image.png", class: "recipe-img" %>
+            <div class='recipe-title'>
               レシピを投稿してね！
-            </h3>
-          </div>
+            </div>
           <% end %>
         </li>
       <% end %>
