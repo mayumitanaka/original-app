@@ -1,11 +1,9 @@
-<%= render "shared/second-header" %>
-
-<div class="items-sell-contents">
-  <header class="items-sell-header">
-    <%#= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
+<div class="recipes-post-contents">
+  <header class="recipes-post-header">
+    <%= link_to image_tag('MenuBot-logo.png' , size: '200x150'), "/" %>
   </header>
-  <div class="items-sell-main">
-    <h2 class="items-sell-title">レシピの情報を入力</h2>
+  <div class="recipes-post-main">
+    <h2 class="recipes-post-title">レシピの情報を入力</h2>
     <%= form_with model: @recipe, url: recipe_path(@recipe.id), local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
@@ -15,35 +13,31 @@
         画像
       </div>
       <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
+        <p>クリックしてファイルをアップロード</p>
         <%= f.file_field :image, id:"recipe-image" %>
       </div>
     </div>
 
-    <div class="new-items">
+    <div class="new-recipes">
       <div class="weight-bold-text">
         タイトル
-        <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :recipe_title, class:"items-text", id:"recipe-title", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_field :recipe_title, class:"recipes-title", id:"recipe-title", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
     </div>
 
-    <div class="items-detail">
-      <div class="weight-bold-text">レシピの詳細</div>
-      <div class="price-content">
-        <%= f.text_field :recipe_volume, class:"price-input", id:"recipe-volume" %>
-        <span class="sell-yen">人前</span>
+    <div class="recipes-detail">
+      <div class="weight-bold-text">
+        材料
+      </div>
+      <div class="recipe-volume-form">
+        <%= f.number_field :recipe_volume, class:"recipe-volume", id:"recipe-volume", min: 1, max: 99%>
+        <span class="no-of-dish">人前</span>
       </div>
 
       <div class="parent">
         <div class="form-box">
-          <div class="forms-item">
-            材料
-          </div>
           <div class="add-botton-box">
-            <%= link_to_add_association "追加ボタン", f, :ingredients,
+            <%= link_to_add_association "追加", f, :ingredients,
             class: 'add_fields',
             id: 'add-btn',
             data: {
@@ -59,40 +53,38 @@
         <% end %>
       </div>
 
-      <div class="price-content">
-        <div class="price-text">
-          <span>調理時間</span>
+      <div class="cooking-time-form">
+        <div class="weight-bold-text">
+          調理時間
         </div>
-        <%= f.text_field :cooking_time, class:"price-input", id:"cooking-time" %>
-        <span class="sell-yen">分</span>
+        <%= f.number_field :cooking_time, class:"cooking-time", id:"cooking-time", min: 1, max: 999 %>
+        <span class="time">分</span>
       </div>
+
       <div class="form">
         <div class="weight-bold-text">
           調理器具
         </div>
         <%= f.collection_select(:tool_id, Tool.all, :id, :name, {}, {class:"select-box", id:"tool"}) %>
+      </div>
+
+      <div class="form">
         <div class="weight-bold-text">
           カテゴリー
         </div>
-        <%= f.collection_select(:item_category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
       </div>
+
+      <div class="weight-bold-text">
+        手順
+      </div>
+      <%= f.text_area :recipe_procedure, class:"recipe-procedure", id:"recipe-procedure", placeholder:"調理の手順" ,rows:"20" %>
     </div>
 
-    <div class="new-items">
-      <div class="items-explain">
-        <div class="weight-bold-text">
-          手順
-        </div>
-        <%= f.text_area :recipe_procedure, class:"items-text", id:"recipe-procedure", placeholder:"調理の手順" ,rows:"20" ,maxlength:"5000" %>
-      </div>
-    </div>
-
-    <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "変更する" ,class:"sell-btn" %>
       <%=link_to 'もどる', recipe_path(@recipe.id), class:"back-btn" %>
     </div>
-    <%# /下部ボタン %>
+    <% end %>
   </div>
-  <% end %>
 </div>
