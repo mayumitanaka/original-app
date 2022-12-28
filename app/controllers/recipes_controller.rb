@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @ingredients = @recipe.ingredients
   end
 
   def edit
@@ -41,9 +42,9 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:recipe_title, :recipe_procedure, :recipe_volume, :recipe_material, :recipe_quantity,
-                                   :cooking_time, :tool_id, :category_id, {images: []}, 
-                                   ingredients_attributes:[:id, :recipe_id, :thing_id, :amount, :_destroy])
+    params.require(:recipe).permit(:recipe_title, :recipe_procedure, :recipe_volume,
+                                   :cooking_time, :tool_id, :category_id, :image, 
+                                   ingredients_attributes:[:id, :recipe_id, :ing, :quantity, :_destroy])
                                    .merge(user_id: current_user.id)
   end
 
