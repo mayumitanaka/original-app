@@ -6,10 +6,12 @@ ja:
         tool_id  : 調理器具
       recipe:
         recipe_title     : タイトル
-        recipe_procedure : 調理手順
-        recipe_volume    : 量
-        recipe_material  : 材料
-        recipe_quantity  : 使用量
+        recipe_procedure : 手順
+        recipe_volume    : 材料(◯人前)
         cooking_time     : 調理時間
         tool_id          : 調理器具
         category_id      : カテゴリー
+        image            : 画像
+      ingredients:
+        ing      : 材料
+        quantity : 材料(使用量)

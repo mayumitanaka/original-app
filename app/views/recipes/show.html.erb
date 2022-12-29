@@ -1,54 +1,63 @@
 <%= render "shared/header" %>
 
-<div class="item-show">
-  <div class="item-box">
+<div class="recipe-show">
+  <div class="recipe-box">
+    <div class="recipe-img-content">
+      <%= image_tag @recipe.image, class:"recipe-box-img" %>
+    </div>
+
     <h2 class="name">
       <%= @recipe.recipe_title %>
     </h2>
-    <div class="item-img-content">
-      <%= image_tag @recipe.image, class:"item-box-img" %>
-    </div>
-    <div class="item-price-box">
-      <span class="item-price">
+
+    <div class="recipe-detail-box">
+      <span class="recipe-detail">
         調理時間：<%= @recipe.cooking_time %> 分
       </span>
-    </div>
-    <div class="item-price-box">
-      <span class="item-price">
+      <span class="recipe-detail">
         カテゴリー：<%= @recipe.category.name %>
       </span>
     </div>
 
-    <div class="item-explain-box">
-      <h3>材料</h3>
-      <span>(<%= @recipe.recipe_volume %>人前)</span>
-    </div>
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-item"><%= @recipe.recipe_material %></th>
-          <td class="detail-value"><%= @recipe.recipe_quantity %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">調理器具</th>
-          <td class="detail-value"><%= @recipe.tool.name %></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="item-explain-box">
-      <h3>手順</h3>
-      <span><%= @recipe.recipe_procedure %></span>
+    <div class="recipe-explain">
+      <div class="recipe-explain-box">
+        <h3>材料</h3>
+        <span class="no-of-dish">(<%= @recipe.recipe_volume %>人前)</span>
+      </div>
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <th class="detail-tool">調理器具</th>
+            <td class="detail-tool-value"><%= @recipe.tool.name %></td>
+          </tr>
+          <% @ingredients.each do |ingredient| %>
+            <tr>
+              <th class="detail-recipe"><%= ingredient.ing %></th>
+              <td class="detail-recipe-value"><%= ingredient.quantity %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
 
+    <div class="recipe-explain">
+      <div class="recipe-procedure-title">
+        <h3>手順</h3>
+        <div class="recipe-procedure-text">
+          <%= @recipe.recipe_procedure %>
+        </div>
+      </div>
+    </div>
 
-    <% if user_signed_in? %>
-      <% if current_user.id == @recipe.user_id %>
-        <%= link_to "編集", edit_recipe_path(@recipe.id), method: :get, class: "item-red-btn" %>
-        <p class="or-text">or</p>
-        <%= link_to "削除", recipe_path(@recipe.id), method: :delete, class:"item-destroy" %>
-      <% else current_user.id != @recipe.user_id %>
-        <div class="item-red-btn", id="bookmark-btn">お気に入り</div>
+    <div class="edit-btn">
+      <% if user_signed_in? %>
+        <% if current_user.id == @recipe.user_id %>
+          <%= link_to "編集", edit_recipe_path(@recipe.id), method: :get, class: "recipe-red-btn" %>
+          <%= link_to "削除", recipe_path(@recipe.id), method: :delete, class:"recipe-destroy" %>
+        <% else current_user.id != @recipe.user_id %>
+          <div class="recipe-red-btn", id="bookmark-btn">お気に入り</div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

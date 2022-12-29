@@ -7,7 +7,7 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A[a-z\d]+\z/i.freeze
 
   with_options presence: true do
-    validates_format_of :password, with: PASSWORD_REGEX
+    validates_format_of :password, with: PASSWORD_REGEX, allow_blank: true
   end
 
   validates :nickname, presence: true
@@ -15,7 +15,4 @@ class User < ApplicationRecord
   has_many :recipes, dependent: :destroy
   has_many :menus,   dependent: :destroy
   has_many :foods,   dependent: :destroy
-
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :tool
 end

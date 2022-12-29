@@ -1,0 +1,15 @@
+<div class="nested-fields">
+  <table>
+    <tr>
+      <td class="td-fixed-select">
+        <%= f.text_field :ing, class:"ingredient-name", id:"ing-select" %>
+      </td>
+      <td class="td-fixed-quantity">
+        <%= f.text_field :quantity, class:"ingredients-quantity",id:"ingredient-quantity" %>
+      </td>
+      <td class="td-fixed-delete">
+        <%= link_to_remove_association "削除", f, class: 'td-delete' %>
+      </td>
+    </tr>
+  </table>
+</div>
