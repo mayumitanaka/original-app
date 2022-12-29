@@ -81,8 +81,8 @@
       <%= f.text_area :recipe_procedure, class:"recipe-procedure", id:"recipe-procedure", placeholder:"調理の手順" ,rows:"20" %>
     </div>
 
-    <div class="sell-btn-contents">
-      <%= f.submit "変更する" ,class:"sell-btn" %>
+    <div class="post-btn-contents">
+      <%= f.submit "変更する" ,class:"post-btn" %>
       <%=link_to 'もどる', recipe_path(@recipe.id), class:"back-btn" %>
     </div>
     <% end %>

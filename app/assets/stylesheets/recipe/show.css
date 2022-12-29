@@ -105,7 +105,8 @@
 .recipe-red-btn {
   height: 50px;
   width: 180px;
-  background-color: #ea352d;
+  background: darksalmon;
+  border: 1px solid coral;
   border-radius: 5px;
   color: #FFF;
   font-size: 18px;
