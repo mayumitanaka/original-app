@@ -141,14 +141,14 @@
   padding: 1vh;
 }
 
-.sell-btn-contents {
+.post-btn-contents {
   width: 100%;
   display: flex;
   justify-content: space-between;
   text-align: center;
 }
 
-.sell-btn {
+.post-btn {
   height: 50px;
   width: 40%;
   background: #ea352d;
