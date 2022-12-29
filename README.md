@@ -7,14 +7,12 @@
 | nickname           | string  | null: false               |
 | email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
-| tool_id            | integer | null: false               |
 
 ### Association
 
 - has_many :recipes, dependent: :destroy
 - has_many :menus,   dependent: :destroy
 - has_many :foods,   dependent: :destroy
-- belongs_to_active_hash :tool
 
 
 ## recipes テーブル
@@ -24,20 +22,32 @@
 | recipe_title      | string     | null: false                    |
 | recipe_procedure  | text       | null: false                    |
 | recipe_volume     | integer    | null: false                    |
-| recipe_material   | string     | null: false                    |
-| recipe_quantity   | string     | null: false                    |
 | cooking_time      | integer    | null: false                    |
-| tool_id           | integer    | null: false                    |
+| tool_id           | integer    |                                |
 | category_id       | integer    | null: false                    |
 | user              | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
+- has_many   :ingredients
 - has_many   :menus
-- has_many   :recipe-tags
+- has_many   :recipe_tags
 - belongs_to_active_hash :tool
 - belongs_to_active_hash :category
+
+
+## ingredients テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| ing      | string     | null: false                    |
+| quantity | string     | null: false                    |
+| recipe   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :recipe
 
 
 ## menus テーブル
