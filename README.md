@@ -32,7 +32,6 @@
 - belongs_to :user
 - has_many   :ingredients
 - has_many   :menus
-- has_many   :recipe_tags
 - belongs_to_active_hash :tool
 - belongs_to_active_hash :category
 
@@ -61,38 +60,6 @@
 
 - belongs_to :user
 - belongs_to :recipe
-
-
-## recipe_tags テーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| recipe   | references | null: false, foreign_key: true |
-| tag      | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :recipe
-- belongs_to :tag
-
-
-## tags テーブル
-
-| Column     | Type     | Options        |
-| ---------- | -------- | -------------- |
-| bookmark   | string   | null: false    |
-| main       | string   | null: false    |
-| sub        | string   | null: false    |
-| soup       | string   | null: false    |
-| vegetable  | string   | null: false    |
-| meet       | string   | null: false    |
-| egg        | string   | null: false    |
-| fish       | string   | null: false    |
-| bean       | string   | null: false    |
-
-### Association
-
-- has_many   :recipe-tags
 
 
 ## foods テーブル
