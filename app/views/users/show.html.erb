@@ -1,0 +1,26 @@
+<%= render "shared/second-header" %>
+
+<div class='main'>
+  <div class='recipe-contents'>
+    <div class="subtitle" >
+      <%= @nickname %>さんの投稿一覧
+    </div>
+    <ul class='recipe-lists'>
+      <% @recipe.each do |recipe| %>
+        <li class='list'>
+          <%= link_to recipe_path(recipe.id) do %>
+            <%= image_tag recipe.image, class: "recipe-img" if recipe.image.attached? %>
+            <div class='recipe-title'>
+              <%= recipe.recipe_title %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="subtitle" >
+      お気に入り一覧
+    </div>
+    
+  </div>
+</div>

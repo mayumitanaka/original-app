@@ -1,5 +1,5 @@
 .recipe-show {
-  background-color: antiquewhite;
+  background-color: cornsilk;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
 }
 
 .recipe-box {
-  background-color: antiquewhite;
+  background-color: cornsilk;
   width: 70vw;
   min-width: 1200px;
   display: flex;
@@ -20,7 +20,7 @@
   height: 30vh;
   width: 30vw;
   min-height: 300px;
-  background-color: rgb(205, 202, 202);
+  background-color: cornsilk;
   object-fit: contain;
 }
 
