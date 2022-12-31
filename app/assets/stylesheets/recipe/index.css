@@ -27,6 +27,7 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   list-style: none;
+  margin-bottom: 30px;
 }
 
 .recipe-lists>.list {
