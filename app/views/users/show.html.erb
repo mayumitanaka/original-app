@@ -6,7 +6,7 @@
       <%= @nickname %>さんの投稿一覧
     </div>
     <ul class='recipe-lists'>
-      <% @recipe.each do |recipe| %>
+      <% @recipes.each do |recipe| %>
         <li class='list'>
           <%= link_to recipe_path(recipe.id) do %>
             <%= image_tag recipe.image, class: "recipe-img" if recipe.image.attached? %>
@@ -21,6 +21,17 @@
     <div class="subtitle" >
       お気に入り一覧
     </div>
-    
+    <ul class='recipe-lists'>
+      <% @favorites.each do |favorite| %>
+        <li class='list'>
+          <%= link_to recipe_path(favorite.recipe_id) do %>
+            <%= image_tag favorite.recipe.image, class: "recipe-img" if favorite.recipe.image.attached? %>
+            <div class='recipe-title'>
+              <%= favorite.recipe.recipe_title %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>    
   </div>
 </div>

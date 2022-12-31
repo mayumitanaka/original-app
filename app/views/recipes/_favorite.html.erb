@@ -1,0 +1,9 @@
+<% if @recipe.favorited?(current_user) %>
+  <%= link_to recipe_favorites_path(@recipe.id), method: :delete do %>
+    登録済み
+  <% end %>
+<% else %>
+  <%= link_to recipe_favorites_path(@recipe.id), method: :post do %>
+    お気に入り
+  <% end %>
+<% end %>

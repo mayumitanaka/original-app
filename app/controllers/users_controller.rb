@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @nickname = current_user.nickname
-    @recipe = current_user.recipes
+    @recipes = current_user.recipes
+    @favorites = current_user.favorites
   end
 end
