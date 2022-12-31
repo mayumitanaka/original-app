@@ -13,8 +13,8 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many   :ingredients, dependent: :destroy
   accepts_nested_attributes_for :ingredients, allow_destroy: true
+  has_many :favorites, dependent: :destroy
   # has_many   :menus
-  # has_many   :recipe_tags
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
