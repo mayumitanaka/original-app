@@ -113,6 +113,10 @@
   line-height: 50px;
   text-align: center;
 }
+.recipe-red-btn, a {
+  text-decoration: none;
+  color: #FFF;
+}
 .recipe-destroy {
   height: 50px;
   width: 180px;

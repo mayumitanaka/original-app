@@ -55,11 +55,11 @@
           <%= link_to "編集", edit_recipe_path(@recipe.id), method: :get, class: "recipe-red-btn" %>
           <%= link_to "削除", recipe_path(@recipe.id), method: :delete, class:"recipe-destroy" %>
         <% else current_user.id != @recipe.user_id %>
-          <div class="recipe-red-btn", id="bookmark-btn">お気に入り</div>
 
-          <div class="recipe-red-btn", id="favorite-<%= @recipe.id %>" >
-            <%= render partial: "favorite", locals: { recipe: @recipe } %>
-          </div>
+        <div class="recipe-red-btn", id="favorite-<%= @recipe.id %>" >
+          <%= render partial: "favorite", locals: { recipe: @recipe } %>
+        </div>
+
         <% end %>
       <% end %>
     </div>
