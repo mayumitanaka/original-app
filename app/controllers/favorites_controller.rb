@@ -13,9 +13,9 @@ class FavoritesController < ApplicationController
     redirect_to recipe_path(@recipe.id)
   end
 
-
   private
-    def set_recipe
-      @recipe = Recipe.find(params[:recipe_id])
-    end
+
+  def set_recipe
+    @recipe = Recipe.find(params[:recipe_id])
+  end
 end

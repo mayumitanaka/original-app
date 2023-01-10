@@ -6,7 +6,8 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
       t.integer    :recipe_volume,    null: false
       t.integer    :cooking_time,     null: false
       t.integer    :tool_id
-      t.integer    :category_id,      null: false
+      t.integer    :category_menu_id, null: false
+      t.integer    :category_dish_id
       t.references :user,             null: false,  foreign_key: true
       t.timestamps
     end

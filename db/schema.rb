@@ -57,7 +57,8 @@ ActiveRecord::Schema.define(version: 2022_12_31_064520) do
     t.integer "recipe_volume", null: false
     t.integer "cooking_time", null: false
     t.integer "tool_id"
-    t.integer "category_id", null: false
+    t.integer "category_menu_id", null: false
+    t.integer "category_dish_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

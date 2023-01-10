@@ -72,7 +72,8 @@
         <div class="weight-bold-text">
           カテゴリー
         </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"category"}) %>
+        <%= f.collection_select(:category_menu_id, CategoryMenu.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"category_menu"}) %>
+        <%= f.collection_select(:category_dish_id, CategoryDish.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"category_dish"}) %>
       </div>
       
       <div class="weight-bold-text">
