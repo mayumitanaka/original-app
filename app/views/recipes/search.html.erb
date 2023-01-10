@@ -11,10 +11,17 @@
         </div>
 
         <div class="search-field">
-          <%= f.label :category_id_in, 'カテゴリー', class: "search-label" %>
+          <%= f.label :category_menu_id_in, 'カテゴリー', class: "search-label" %>
+          <%= f.label :category_dish_id_in, 'カテゴリー', class: "search-label" %>
           <br>
           <div class="search-check-boxes">
-            <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name, {include_blank: "---"}) do |b| %>
+            <%= f.collection_check_boxes(:category_menu_id_in, CategoryMenu.all, :id, :name, {include_blank: "---"}) do |b| %>
+              <span class="check-box-label">
+                <%= b.check_box %>
+                <%= b.label { b.text } %>
+              </span>
+            <%end%>
+            <%= f.collection_check_boxes(:category_dish_id_in, CategoryDish.all, :id, :name, {include_blank: "---"}) do |b| %>
               <span class="check-box-label">
                 <%= b.check_box %>
                 <%= b.label { b.text } %>

@@ -9,11 +9,15 @@ RSpec.describe Recipe, type: :model do
   describe 'レシピ情報の登録' do
     context 'レシピ情報が登録できる場合' do
       it 'recipe_title、recipe_procedure、recipe_volume、ingredients_attributes、
-          cooking_time、tool_id、category_id、imageが存在すれば登録できる' do
+          cooking_time、category_menu_id、imageが存在すれば登録できる' do
         expect(@recipe).to be_valid
       end
-      it 'tool_idに「---」が選択されていても登録できる' do
-        @recipe.tool_id = 1
+      it 'tool_idが空でも登録できる' do
+        @recipe.tool_id = nil
+        expect(@recipe).to be_valid
+      end
+      it 'category_dish_idが空でも登録できる' do
+        @recipe.category_menu_id = nil
         expect(@recipe).to be_valid
       end
     end
@@ -89,8 +93,8 @@ RSpec.describe Recipe, type: :model do
         @recipe.valid?
         expect(@recipe.errors.full_messages).to include '調理時間は999以下の値にしてください'
       end
-      it 'category_idに「---」が選択されている場合は登録できない' do
-        @recipe.category_id = 1
+      it 'category_menu_idに「---」が選択されている場合は登録できない' do
+        @recipe.category_menu_id = nil
         @recipe.valid?
         expect(@recipe.errors.full_messages).to include 'カテゴリーを入力してください'
       end

@@ -4,8 +4,9 @@ FactoryBot.define do
     recipe_procedure { Faker::Food.description }
     recipe_volume    { Faker::Number.between(from: 1, to: 99) }
     cooking_time     { Faker::Number.between(from: 1, to: 999) }
-    tool_id          { Faker::Number.between(from: 2, to: 11) }
-    category_id      { Faker::Number.between(from: 2, to: 9) }
+    tool_id          { Faker::Number.between(from: 1, to: 11) }
+    category_menu_id { Faker::Number.between(from: 1, to: 3) }
+    category_dish_id { Faker::Number.between(from: 1, to: 6) }
     association :user
 
     after(:build) do |recipe|

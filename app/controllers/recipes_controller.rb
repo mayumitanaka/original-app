@@ -50,18 +50,17 @@ class RecipesController < ApplicationController
   def search
     if params[:q]&.dig(:recipe_title)
       squished_keywords = params[:q][:recipe_title].squish
-      params[:q][:recipe_title_cont_any] = squished_keywords.split(" ")
+      params[:q][:recipe_title_cont_any] = squished_keywords.split(' ')
     end
     @q = Recipe.ransack(params[:q])
     @recipes = @q.result.order('created_at DESC')
   end
 
-
   private
 
   def recipe_params
     params.require(:recipe).permit(:recipe_title, :recipe_procedure, :recipe_volume,
-                                   :cooking_time, :tool_id, :category_id, :image,
+                                   :cooking_time, :tool_id, :category_menu_id, :category_dish_id, :image,
                                    ingredients_attributes: [:id, :recipe_id, :ing, :quantity, :_destroy])
           .merge(user_id: current_user.id)
   end

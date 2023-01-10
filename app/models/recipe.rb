@@ -6,7 +6,7 @@ class Recipe < ApplicationRecord
                                               allow_blank: true }, format: { with: /\d/, allow_blank: true }
     validates :cooking_time, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 999,
                                              allow_blank: true }, format: { with: /\d/, allow_blank: true }
-    validates :category_id, numericality: { other_than: 1, message: 'を入力してください' }
+    validates :category_menu_id, numericality: { message: 'を入力してください' }
     validates :recipe_procedure
   end
 
@@ -19,9 +19,10 @@ class Recipe < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :tool
-  belongs_to :category
+  belongs_to :category_menu
+  belongs_to :category_dish
 
   def favorited?(user)
     favorites.where(user_id: user.id).exists?
- end
+  end
 end
