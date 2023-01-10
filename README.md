@@ -11,6 +11,8 @@
 ### Association
 
 - has_many :recipes, dependent: :destroy
+- has_many :favorites, dependent: :destroy
+- has_many :favorite_recipes, through: :favorites, source: :recipe
 - has_many :menus,   dependent: :destroy
 - has_many :foods,   dependent: :destroy
 
@@ -24,16 +26,19 @@
 | recipe_volume     | integer    | null: false                    |
 | cooking_time      | integer    | null: false                    |
 | tool_id           | integer    |                                |
-| category_id       | integer    | null: false                    |
+| category_menu_id  | integer    | null: false                    |
+| category_dish_id  | integer    |                                |
 | user              | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many   :ingredients
+- has_many   :ingredients, dependent: :destroy
+- has_many   :favorites, dependent: :destroy
 - has_many   :menus
 - belongs_to_active_hash :tool
-- belongs_to_active_hash :category
+- belongs_to_active_hash :category_menu
+- belongs_to_active_hash :category_dish
 
 
 ## ingredients テーブル
@@ -46,6 +51,19 @@
 
 ### Association
 
+- belongs_to :recipe
+
+
+## favorites テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+| recipe   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
 - belongs_to :recipe
 
 
