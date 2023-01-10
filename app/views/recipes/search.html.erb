@@ -1,0 +1,61 @@
+<%= render "shared/header" %>
+
+<div class='main'>
+  <div class='recipe-contents' id="detailed-search-result-wrapper">
+    <div class="search-contents">
+      <%= search_form_for @q, url: search_recipes_path, html: {id: "detailed-search-form"} do |f| %>
+        <div class="search-field">
+          <%= f.label :recipe_title, 'レシピ名', class: "search-label" %>
+          <br>
+          <%= f.text_field :recipe_title, placeholder: '複数検索は半角スペースで区切ってください', class: "search-input-box", value: params[:q]&.dig(:recipe_title) %>
+        </div>
+
+        <div class="search-field">
+          <%= f.label :category_id_in, 'カテゴリー', class: "search-label" %>
+          <br>
+          <div class="search-check-boxes">
+            <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name, {include_blank: "---"}) do |b| %>
+              <span class="check-box-label">
+                <%= b.check_box %>
+                <%= b.label { b.text } %>
+              </span>
+            <%end%>
+          </div>
+        </div>
+
+       <div class="search-field">
+          <%= f.label :tool_id_in, '調理器具', class: "search-label" %>
+          <br>
+          <div class="search-check-boxes">
+            <%= f.collection_check_boxes(:tool_id_in, Tool.all, :id, :name, {include_blank: "---"}) do |b| %>
+              <span class="check-box-label">
+                <%= b.check_box %>
+                <%= b.label { b.text } %>
+              </span>
+            <%end%>
+          </div>
+        </div>
+
+        <div class="search-field">
+          <%= f.label :cooking_time_gteq, '調理時間', class: "search-label" %>
+          <br>
+          <%= f.number_field :cooking_time_lteq, class: "cooking-time" %> 分以内
+        </div>
+        <%= f.submit '検索', class: "search-submit-btn" %>
+      <% end %>
+    </div>
+
+    <ul class='recipe-lists' id="detailed-search-result">
+      <% @recipes.each do |recipe| %>
+        <li class='list'>
+          <%= link_to recipe_path(recipe.id) do %>
+            <%= image_tag recipe.image, class: "recipe-img" if recipe.image.attached? %>
+            <div class='recipe-title'>
+              <%= recipe.recipe_title %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

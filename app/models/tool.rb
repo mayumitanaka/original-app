@@ -1,6 +1,6 @@
 class Tool < ActiveHash::Base
   self.data = [
-    { id: 1, name: '---' },
+    { id: 1, name: 'なし' },
     { id: 2, name: '鍋(直径15cm程度)' },
     { id: 3, name: '鍋(直径25cm程度)' },
     { id: 4, name: 'フライパン(直径15cm程度)' },

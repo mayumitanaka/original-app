@@ -48,8 +48,12 @@ class RecipesController < ApplicationController
   end
 
   def search
+    if params[:q]&.dig(:recipe_title)
+      squished_keywords = params[:q][:recipe_title].squish
+      params[:q][:recipe_title_cont_any] = squished_keywords.split(" ")
+    end
     @q = Recipe.ransack(params[:q])
-    @recipes = @q.result
+    @recipes = @q.result.order('created_at DESC')
   end
 
 

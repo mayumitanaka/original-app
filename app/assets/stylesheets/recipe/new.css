@@ -157,6 +157,7 @@
   color: #fff;
   font-size: 14px;
   margin: 5px 10px;
+  cursor: pointer;
 }
 
 .back-btn {
@@ -170,4 +171,5 @@
   margin: 5px 10px;
   text-decoration: none;
   line-height: 50px;
+  cursor: pointer;
 }

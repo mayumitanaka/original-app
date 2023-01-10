@@ -1,0 +1,40 @@
+.search-contents{
+  width: 50%;
+}
+
+.search-field{
+  margin-bottom: 20px;
+}
+
+.search-label{
+  line-height: 25px;
+}
+
+.search-input-box {
+  width: 80%;
+  line-height: 30px;
+  padding-left: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-check-boxes{
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+span.check-box-label {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.search-submit-btn{
+  height: 50px;
+  width: 20%;
+  background: darksalmon;
+  border: 1px solid coral;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
