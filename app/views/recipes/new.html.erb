@@ -65,14 +65,14 @@
         <div class="weight-bold-text">
           調理器具
         </div>
-        <%= f.collection_select(:tool_id, Tool.all, :id, :name, {}, {class:"select-box", id:"tool"}) %>
+        <%= f.collection_select(:tool_id, Tool.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"tool"}) %>
       </div>
       
       <div class="form">
         <div class="weight-bold-text">
           カテゴリー
         </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"category"}) %>
       </div>
       
       <div class="weight-bold-text">
