@@ -5,7 +5,7 @@ class CategoryDish < ActiveHash::Base
     { id: 3, name: '卵料理' },
     { id: 4, name: '魚料理' },
     { id: 5, name: '米料理' },
-    { id: 5, name: '麺料理' }
+    { id: 6, name: '麺料理' }
   ]
 
   include ActiveHash::Associations
