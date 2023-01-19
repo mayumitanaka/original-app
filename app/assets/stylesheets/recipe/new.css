@@ -28,7 +28,6 @@
 
 .img-upload {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   padding: 2vh 0;
 }
@@ -39,11 +38,11 @@
 
 .click-upload>p {
   margin-bottom: 15px;
+  padding-top: 10px;
 }
 
 .weight-bold-text {
   font-weight: bold;
-  min-width: 170px;
   margin-bottom: 10px;
 }
 
