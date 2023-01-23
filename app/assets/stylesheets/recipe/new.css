@@ -28,7 +28,6 @@
 
 .img-upload {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   padding: 2vh 0;
 }
@@ -39,11 +38,11 @@
 
 .click-upload>p {
   margin-bottom: 15px;
+  padding-top: 10px;
 }
 
 .weight-bold-text {
   font-weight: bold;
-  min-width: 170px;
   margin-bottom: 10px;
 }
 
@@ -155,7 +154,7 @@
   border: 1px solid coral;
   border-radius: 5px;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   margin: 5px 10px;
   cursor: pointer;
 }
@@ -167,7 +166,7 @@
   border: 1px solid #aaa;
   border-radius: 5px;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   margin: 5px 10px;
   text-decoration: none;
   line-height: 50px;

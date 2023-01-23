@@ -1,0 +1,67 @@
+<div class="recipes-post-contents">
+  <header class="recipes-post-header">
+    <%= link_to image_tag('MenuBot-logo.png', size: '200x150'), "/" %>
+  </header>
+
+  <div class="menus-post-main">
+    <h2 class="menus-post-title">献立を選んでください</h2>
+    <%= form_with model: @menu, url: menus_path, local: true do |f| %>
+      <div class="date-form">
+        <%= f.label :日付, class: 'control-label' %>
+        <%= f.date_field :created_at, class: 'form-control' %>
+      </div>
+
+      <div class="menu-form">
+        <div class="menu-form-content">
+          <%= f.label :主菜_id, class: 'form-item-label' %>
+          <div class="select-recipe">
+  		      <% @menu_main.each do |recipe| %>
+	  		      <label class="select-check">
+                <%= f.check_box 'recipe_id', {}, true, false %>
+                <%= image_tag recipe.image, class: "select-recipe-img" %>
+                <div class="select-recipe-title">
+                  <%= recipe.recipe_title %>
+                </div>
+              </label>
+		        <% end %>
+          </div>
+        </div>
+
+        <div class="menu-form-content">
+          <%= f.label :副菜_id, class: 'form-item-label' %>
+          <div class="select-recipe">
+  		      <% @menu_sub.each do |recipe| %>
+	  		      <label class="select-check">
+                <%= f.check_box 'recipe_id', {}, true, false %>
+                <%= image_tag recipe.image, class: "select-recipe-img" %>
+                <div class="select-recipe-title">
+                  <%= recipe.recipe_title %>
+                </div>
+              </label>
+		        <% end %>
+          </div>
+        </div>
+
+        <div class="menu-form-content">
+          <%= f.label :汁物_id, class: 'form-item-label' %>
+          <div class="select-recipe">
+  		      <% @menu_soup.each do |recipe| %>
+	  		      <label class="select-check">
+                <%= f.check_box 'recipe_id', {}, true, false %>
+                <%= image_tag recipe.image, class: "select-recipe-img" %>
+                <div class="select-recipe-title">
+                  <%= recipe.recipe_title %>
+                </div>
+              </label>
+		        <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-btn-contents">
+        <%= f.submit "作成する", class:"menu-btn" %>
+        <%= link_to 'もどる', menus_path, class:"back-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

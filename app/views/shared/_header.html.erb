@@ -2,12 +2,28 @@
   <div class='search-bar-contents'>
     <%= link_to image_tag("MenuBot-logo.png", class:"logo-icon"), "/" %>
     <div class="search-right">
-      <%= form_with(url: search_recipes_path, local: true, method: :get, class: "search-form") do |form| %>
-        <div class="search-button">
-          <%= image_submit_tag("search.png", class: 'search-icon') %>
+      <div class="search-right-btn">
+        <div class="search-form">
+          <div class="menu-button">
+            <%= link_to image_submit_tag("menu.png", class: 'search-icon'), menus_path %>
+          </div>
+          <%= link_to '献立ページ', menus_path, class:"search-link" %>
         </div>
-        <%= link_to 'レシピを探す', search_recipes_path, class:"search-link" %>
-      <% end %>
+
+        <div class="search-form">
+          <div class="food-button">
+            <%= link_to image_submit_tag("food.png", class: 'search-icon'), "#" %>
+          </div>
+          <%= link_to '食材登録', "#", class:"search-link" %>
+        </div>
+
+        <div class="search-form">
+          <div class="search-button">
+            <%= link_to image_submit_tag("search.png", class: 'search-icon'), search_recipes_path %>
+          </div>
+          <%= link_to 'レシピを探す', search_recipes_path, class:"search-link" %>
+        </div>
+      </div>
 
       <div class='nav'>
         <ul class='lists-right'>
@@ -23,5 +39,4 @@
     </div>
   </div>
 
-  
 </header>

@@ -1,0 +1,37 @@
+.main {
+  background: #f8f8f8;
+  height: 100vh;
+  width: 100vw;
+}
+
+.menu-contents {
+  height: 100%;
+  background-color: cornsilk;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0;
+}
+
+.menu-contents>.subtitle {
+  font-size: 3vh;
+  margin-top: 1vh;
+  color:lightseagreen;
+  font-weight: bold;
+}
+
+.menu-content{
+  margin: 20px 0;
+  border: 4px solid mediumaquamarine;
+}
+.date{
+  width: 20%;
+  border-right: 2px solid mediumaquamarine;
+  font-size: 14px;
+  text-align: center;
+}
+.menu-detail{
+  width: 40%;
+  padding: 20px;
+  font-size: 14px;
+}

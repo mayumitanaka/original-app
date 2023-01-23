@@ -1,0 +1,54 @@
+<%= render "shared/header" %>
+
+<div class='main'>
+  <div class='menu-contents'>
+    <div class="subtitle" >
+      献立一覧
+    </div>
+
+    <table class="menu-content">
+      <tbody>
+        <tr>
+          <th class="date">1/23(月)</th>
+          <td class="menu-detail">
+            <% @menu_main.each do |recipe| %>
+              <%= image_tag recipe.image, class: "select-recipe-img" %>
+		        <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="menu-content">
+      <tbody>
+        <tr>
+          <th class="date">1/24(火)</th>
+          <td class="menu-detail">
+            <% @menu_main.each do |recipe| %>
+              <%= image_tag recipe.image, class: "select-recipe-img" %>
+		        <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="menu-content">
+      <tbody>
+        <tr>
+          <th class="date">1/25(水)</th>
+          <td class="menu-detail">
+            <% @menu_main.each do |recipe| %>
+              <%= image_tag recipe.image, class: "select-recipe-img" %>
+		        <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+<%= link_to(new_menu_path, class: 'new-menu-btn') do %>
+  <span class='new-menu-btn-text'>献立作成</span>
+<% end %>
