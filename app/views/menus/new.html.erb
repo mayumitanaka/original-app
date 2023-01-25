@@ -12,50 +12,17 @@
       </div>
 
       <div class="menu-form">
-        <div class="menu-form-content">
-          <%= f.label :主菜_id, class: 'form-item-label' %>
-          <div class="select-recipe">
-  		      <% @menu_main.each do |recipe| %>
-	  		      <label class="select-check">
-                <%= f.check_box 'recipe_id', {}, true, false %>
-                <%= image_tag recipe.image, class: "select-recipe-img" %>
-                <div class="select-recipe-title">
-                  <%= recipe.recipe_title %>
-                </div>
-              </label>
-		        <% end %>
-          </div>
-        </div>
+          <%= f.fields_for :main_menus do |form| %>
+            <%= render "main_menu_fields", f: form %>
+          <% end %>
 
-        <div class="menu-form-content">
-          <%= f.label :副菜_id, class: 'form-item-label' %>
-          <div class="select-recipe">
-  		      <% @menu_sub.each do |recipe| %>
-	  		      <label class="select-check">
-                <%= f.check_box 'recipe_id', {}, true, false %>
-                <%= image_tag recipe.image, class: "select-recipe-img" %>
-                <div class="select-recipe-title">
-                  <%= recipe.recipe_title %>
-                </div>
-              </label>
-		        <% end %>
-          </div>
-        </div>
+          <%= f.fields_for :sub_menus do |form| %>
+            <%= render "sub_menu_fields", f: form %>
+          <% end %>
 
-        <div class="menu-form-content">
-          <%= f.label :汁物_id, class: 'form-item-label' %>
-          <div class="select-recipe">
-  		      <% @menu_soup.each do |recipe| %>
-	  		      <label class="select-check">
-                <%= f.check_box 'recipe_id', {}, true, false %>
-                <%= image_tag recipe.image, class: "select-recipe-img" %>
-                <div class="select-recipe-title">
-                  <%= recipe.recipe_title %>
-                </div>
-              </label>
-		        <% end %>
-          </div>
-        </div>
+          <%= f.fields_for :soup_menus do |form| %>
+            <%= render "soup_menu_fields", f: form %>
+          <% end %>
       </div>
 
       <div class="post-btn-contents">

@@ -15,6 +15,9 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients, allow_destroy: true
   has_many   :favorites, dependent: :destroy
   has_many   :menus
+  has_one    :main_menu
+  has_one    :sub_menu
+  has_one    :soup_menu
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions

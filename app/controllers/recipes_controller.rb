@@ -26,9 +26,6 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    return if @recipe.user_id == current_user.id
-
-    redirect_to root_path
   end
 
   def update

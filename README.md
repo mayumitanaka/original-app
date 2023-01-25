@@ -54,7 +54,7 @@ https://original-app.onrender.com
 
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/013af535c964cf173514da534cd9d4a9.png)](https://gyazo.com/013af535c964cf173514da534cd9d4a9)
+[![Image from Gyazo](https://i.gyazo.com/b77c5e1481058a778d5f888426400c0f.png)](https://gyazo.com/b77c5e1481058a778d5f888426400c0f)
 
 
 # 画面遷移図
@@ -119,6 +119,9 @@ https://original-app.onrender.com
 - has_many   :ingredients, dependent: :destroy
 - has_many   :favorites, dependent: :destroy
 - has_many   :menus
+- has_one    :main_menu
+- has_one    :sub_menu
+- has_one    :soup_menu
 - belongs_to_active_hash :tool
 - belongs_to_active_hash :category_menu
 - belongs_to_active_hash :category_dish
@@ -150,12 +153,45 @@ https://original-app.onrender.com
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | user     | references | null: false, foreign_key: true |
-| recipe   | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
+- has_many   :main_menus, dependent: :destroy
+- has_many   :sub_menus, dependent: :destroy
+- has_many   :soup_menus, dependent: :destroy
+
+
+## main_menus テーブル
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
+| menu     | references | foreign_key: true |
+| recipe   | references | foreign_key: true |
+
+### Association
+- belongs_to :menu
 - belongs_to :recipe
 
+
+## sub_menus テーブル
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
+| menu     | references | foreign_key: true |
+| recipe   | references | foreign_key: true |
+
+### Association
+- belongs_to :menu
+- belongs_to :recipe
+
+
+## soup_menus テーブル
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
+| menu     | references | foreign_key: true |
+| recipe   | references | foreign_key: true |
+
+### Association
+- belongs_to :menu
+- belongs_to :recipe
 
 ## foods テーブル
 | Column      | Type       | Options                        |

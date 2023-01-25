@@ -1,0 +1,16 @@
+<div class="nested-fields">  
+  <div class="menu-form-content">
+    <%= f.label :汁物_id, class: 'form-item-label' %>
+    <div class="select-recipe">
+  	  <% @category_menu_soup.each do |recipe| %>
+	  	  <label class="select-check">
+          <%= f.check_box 'recipe_id', {}, true, false %>
+          <%= image_tag recipe.image, class: "select-recipe-img" %>
+          <div class="select-recipe-title">
+            <%= recipe.recipe_title %>
+          </div>
+        </label>
+	  	<% end %>
+    </div>
+  </div>
+</div>
