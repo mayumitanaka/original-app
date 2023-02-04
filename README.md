@@ -22,7 +22,7 @@ https://original-app.onrender.com
 ## レシピ投稿・検索
  1. トップページ(一覧ページ)のヘッダーからユーザー新規登録を行う。
  2. トップページの投稿ボタンから、レシピの内容を入力して投稿する。
- [![Image from Gyazo](https://i.gyazo.com/c62266959fde7feaff0f2319bf9b8674.png)](https://gyazo.com/c62266959fde7feaff0f2319bf9b8674)
+ [![Image from Gyazo](https://i.gyazo.com/c136f9269479ab48d27e4a5262227691.jpg)](https://gyazo.com/c136f9269479ab48d27e4a5262227691)
  3. 投稿内容を変更する場合は、トップページのレシピ画像をクリックし、編集ボタンを押して投稿内容を変更する。
  [![Image from Gyazo](https://i.gyazo.com/c84c5dd2a035742e0a81a87fa3cc5178.png)](https://gyazo.com/c84c5dd2a035742e0a81a87fa3cc5178)
  4. トップページの検索ボタンから、検索条件を入力して検索する。
